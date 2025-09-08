@@ -1,47 +1,178 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - أبو خالد | Eagle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أبو خالد - Eagle | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- زر اللغة -->
-  <div class="lang-switch">
-    <button onclick="setLanguage('ar')">🇸🇦 عربي</button>
-    <button onclick="setLanguage('en')">🇬🇧 English</button>
-  </div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <h2 data-ar="أبو خالد - Eagle" data-en="Abu Khaled - Eagle">أبو خالد - Eagle</h2>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" aria-label="Toggle language">
+                    <span class="flag">🇸🇦</span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-  <!-- المحتوى -->
-  <header>
-    <h1 id="title">أبو خالد - Eagle</h1>
-    <p id="subtitle">خبرة ٥ سنوات في الحياة الواقعية وسنتين في البرمجة</p>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" data-ar="أبو خالد - Eagle" data-en="Abu Khaled - Eagle">أبو خالد - Eagle</h1>
+                <p class="hero-subtitle" 
+                   data-ar="خبرة ٥ سنوات في مجال الحياة الواقعية وسنتين في البرمجة" 
+                   data-en="5 years of real-life experience and 2 years in programming">
+                   خبرة ٥ سنوات في مجال الحياة الواقعية وسنتين في البرمجة
+                </p>
+                <p class="hero-description" 
+                   data-ar="ترأس العديد من السيرفرات الشهيرة والكبيرة، شخص مخضرم بالمجال واسم كبير وثقيل بالساحة، يقدم العديد من المزايا مثل البرمجة الاحترافية والتصميم الجرافيكي وغيرها الكثير، مناصبه قيادية عالية المستوى."
+                   data-en="Leading numerous famous and large servers, a veteran in the field and a big name in the arena. Offers many advantages such as professional programming and graphic design among many others, holding high-level leadership positions.">
+                   ترأس العديد من السيرفرات الشهيرة والكبيرة، شخص مخضرم بالمجال واسم كبير وثقيل بالساحة، يقدم العديد من المزايا مثل البرمجة الاحترافية والتصميم الجرافيكي وغيرها الكثير، مناصبه قيادية عالية المستوى.
+                </p>
+                <button class="cta-btn" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</button>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2 id="about-title">عنّي</h2>
-    <p id="about-text">
-      ترأست العديد من السيرفرات الشهيرة، شخص مخضرم بالمجال واسم كبير بالساحة.
-      أقدّم مزايا مثل البرمجة الاحترافية والتصميم الجرافيكي وغيرها الكثير.
-    </p>
-  </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-ar="عنّي" data-en="About Me">عنّي</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-ar="مرحباً، أنا أبو خالد - Eagle، محترف في عالم التكنولوجيا والبرمجة. بدأت رحلتي منذ خمس سنوات في الحياة العملية، واكتسبت خبرة عميقة في إدارة السيرفرات والمشاريع التقنية الكبيرة."
+                       data-en="Hello, I'm Abu Khaled - Eagle, a professional in the world of technology and programming. I started my journey five years ago in professional life, gaining deep experience in server management and large technical projects.">
+                       مرحباً، أنا أبو خالد - Eagle، محترف في عالم التكنولوجيا والبرمجة. بدأت رحلتي منذ خمس سنوات في الحياة العملية، واكتسبت خبرة عميقة في إدارة السيرفرات والمشاريع التقنية الكبيرة.
+                    </p>
+                    <p data-ar="على مدار السنتين الماضيتين، ركزت على تطوير مهاراتي البرمجية، وأصبحت قائداً في هذا المجال، حيث أدير العديد من السيرفرات المشهورة وأقدم خدمات متنوعة تشمل البرمجة والتصميم الجرافيكي."
+                       data-en="Over the past two years, I focused on developing my programming skills, becoming a leader in this field, managing numerous famous servers and providing diverse services including programming and graphic design.">
+                       على مدار السنتين الماضيتين، ركزت على تطوير مهاراتي البرمجية، وأصبحت قائداً في هذا المجال، حيث أدير العديد من السيرفرات المشهورة وأقدم خدمات متنوعة تشمل البرمجة والتصميم الجرافيكي.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label" data-ar="مشروع مكتمل" data-en="Projects Completed">مشروع مكتمل</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label" data-ar="سيرفرات مدارة" data-en="Servers Managed">سيرفرات مدارة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="skills">
-    <h2 id="skills-title">المهارات</h2>
-    <ul id="skills-list">
-      <li>تصميم المواقع</li>
-      <li>إدارة الأعمال</li>
-      <li>البرمجة</li>
-      <li>التصميم الجرافيكي</li>
-    </ul>
-  </section>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-ar="المهارات" data-en="Skills">المهارات</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-ar="تصميم المواقع" data-en="Web Design">تصميم المواقع</h3>
+                    <p data-ar="إنشاء مواقع ويب احترافية وتفاعلية باستخدام أحدث التقنيات"
+                       data-en="Creating professional and interactive websites using the latest technologies">
+                       إنشاء مواقع ويب احترافية وتفاعلية باستخدام أحدث التقنيات
+                    </p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="--progress: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 data-ar="إدارة الأعمال" data-en="Business Management">إدارة الأعمال</h3>
+                    <p data-ar="خبرة واسعة في إدارة المشاريع الكبيرة والسيرفرات المعقدة"
+                       data-en="Extensive experience in managing large projects and complex servers">
+                       خبرة واسعة في إدارة المشاريع الكبيرة والسيرفرات المعقدة
+                    </p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="--progress: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 data-ar="البرمجة" data-en="Programming">البرمجة</h3>
+                    <p data-ar="تطوير التطبيقات والأنظمة باستخدام لغات برمجة متعددة"
+                       data-en="Developing applications and systems using multiple programming languages">
+                       تطوير التطبيقات والأنظمة باستخدام لغات برمجة متعددة
+                    </p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="--progress: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 data-ar="التصميم الجرافيكي" data-en="Graphic Design">التصميم الجرافيكي</h3>
+                    <p data-ar="إبداع تصاميم بصرية مميزة للهوية التجارية والمحتوى الرقمي"
+                       data-en="Creating distinctive visual designs for branding and digital content">
+                       إبداع تصاميم بصرية مميزة للهوية التجارية والمحتوى الرقمي
+                    </p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="--progress: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p id="footer-text">© 2025 جميع الحقوق محفوظة - أبو خالد</p>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p data-ar="جميع الحقوق محفوظة © 2025 أبو خالد - Eagle"
+                       data-en="All rights reserved © 2025 Abu Khaled - Eagle">
+                       جميع الحقوق محفوظة © 2025 أبو خالد - Eagle
+                    </p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

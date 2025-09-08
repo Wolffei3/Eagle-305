@@ -1,45 +1,45 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>أبوخالد - Eagle</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - أبو خالد | Eagle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- زر اللغة -->
+  <div class="lang-switch">
+    <button onclick="setLanguage('ar')">🇸🇦 عربي</button>
+    <button onclick="setLanguage('en')">🇬🇧 English</button>
+  </div>
+
+  <!-- المحتوى -->
   <header>
-    <h1>أبوخالد - Eagle</h1>
-    <p>اسم كبير وثقيل بالساحة</p>
+    <h1 id="title">أبو خالد - Eagle</h1>
+    <p id="subtitle">خبرة ٥ سنوات في الحياة الواقعية وسنتين في البرمجة</p>
   </header>
 
-  <main>
-    <section class="about">
-      <h2>نبذة</h2>
-      <p>
-        خبرة ٥ سنوات في مجال الحياة الواقعية وسنتين من البرمجة.  
-        ترأس العديد من السيرفرات الشهيرة والكبيرة، شخص مخضرم بالمجال.  
-      </p>
-    </section>
+  <section id="about">
+    <h2 id="about-title">عنّي</h2>
+    <p id="about-text">
+      ترأست العديد من السيرفرات الشهيرة، شخص مخضرم بالمجال واسم كبير بالساحة.
+      أقدّم مزايا مثل البرمجة الاحترافية والتصميم الجرافيكي وغيرها الكثير.
+    </p>
+  </section>
 
-    <section class="services">
-      <h2>ماذا أقدم؟</h2>
-      <ul>
-        <li>✔️ البرمجة الاحترافية</li>
-        <li>✔️ التصميم الجرافيكي</li>
-        <li>✔️ مزايا وخدمات أخرى</li>
-      </ul>
-    </section>
-
-    <section class="leadership">
-      <h2>مناصبي</h2>
-      <p>قيادية عالية المستوى</p>
-    </section>
-
-    <button id="contactBtn">تواصل معي</button>
-  </main>
+  <section id="skills">
+    <h2 id="skills-title">المهارات</h2>
+    <ul id="skills-list">
+      <li>تصميم المواقع</li>
+      <li>إدارة الأعمال</li>
+      <li>البرمجة</li>
+      <li>التصميم الجرافيكي</li>
+    </ul>
+  </section>
 
   <footer>
-    <p>© 2025 أبوخالد المطيري - Eagle</p>
+    <p id="footer-text">© 2025 جميع الحقوق محفوظة - أبو خالد</p>
   </footer>
 
   <script src="script.js"></script>

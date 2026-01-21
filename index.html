@@ -3,173 +3,610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أبو خالد - Eagle | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>اختبار التفعيل - ويست لاند</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #1a0000 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(139, 0, 0, 0.5),
+                        0 0 0 1px rgba(139, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(139, 0, 0, 0.4);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #8B0000, transparent);
+            margin: 20px auto 0;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 20px rgba(139, 0, 0, 0.8),
+                0 0 40px rgba(139, 0, 0, 0.5),
+                0 5px 10px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(45deg, #fff, #ff4444, #8B0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #ccc;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(139, 0, 0, 0.5);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #8B0000;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 
+                0 0 20px rgba(139, 0, 0, 0.3),
+                inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="text"]::placeholder,
+        textarea::placeholder {
+            color: #999;
+        }
+
+        .question {
+            background: rgba(20, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            border-right: 6px solid #8B0000;
+            border-left: 1px solid rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .question:hover::before {
+            left: 100%;
+        }
+
+        .question:hover {
+            background: rgba(30, 0, 0, 0.7);
+            border-right-width: 8px;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B0000, #660000);
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.2em;
+            padding: 8px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .question h3 {
+            color: #fff;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #8B0000, #660000);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.4em;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 
+                0 10px 30px rgba(139, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .submit-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 15px 40px rgba(139, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .result {
+            background: rgba(0, 100, 0, 0.2);
+            border: 2px solid #00AA00;
+            border-radius: 18px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        .result h2 {
+            color: #00FF00;
+            margin-bottom: 15px;
+            font-size: 2em;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        .result p {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 5px solid rgba(139, 0, 0, 0.3);
+            border-top: 5px solid #8B0000;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loading p {
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-box {
+            background: rgba(139, 0, 0, 0.2);
+            border: 2px solid rgba(139, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: #fff;
+            backdrop-filter: blur(5px);
+        }
+
+        .info-box h3 {
+            color: #ff4444;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .info-box p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .question {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">
-                <h2 data-ar="أبو خالد - Eagle" data-en="Abu Khaled - Eagle">أبو خالد - Eagle</h2>
-            </div>
-            <div class="nav-controls">
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="lang-toggle" aria-label="Toggle language">
-                    <span class="flag">🇸🇦</span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title" data-ar="أبو خالد - Eagle" data-en="Abu Khaled - Eagle">أبو خالد - Eagle</h1>
-                <p class="hero-subtitle" 
-                   data-ar="خبرة ٥ سنوات في مجال الحياة الواقعية وسنتين في البرمجة" 
-                   data-en="5 years of real-life experience and 2 years in programming">
-                   خبرة ٥ سنوات في مجال الحياة الواقعية وسنتين في البرمجة
-                </p>
-                <p class="hero-description" 
-                   data-ar="ترأس العديد من السيرفرات الشهيرة والكبيرة، شخص مخضرم بالمجال واسم كبير وثقيل بالساحة، يقدم العديد من المزايا مثل البرمجة الاحترافية والتصميم الجرافيكي وغيرها الكثير، مناصبه قيادية عالية المستوى."
-                   data-en="Leading numerous famous and large servers, a veteran in the field and a big name in the arena. Offers many advantages such as professional programming and graphic design among many others, holding high-level leadership positions.">
-                   ترأس العديد من السيرفرات الشهيرة والكبيرة، شخص مخضرم بالمجال واسم كبير وثقيل بالساحة، يقدم العديد من المزايا مثل البرمجة الاحترافية والتصميم الجرافيكي وغيرها الكثير، مناصبه قيادية عالية المستوى.
-                </p>
-                <button class="cta-btn" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</button>
-            </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 اختبار التفعيل</h1>
+            <p class="subtitle">ويست لاند - Wasteland RP</p>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title" data-ar="عنّي" data-en="About Me">عنّي</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-ar="مرحباً، أنا أبو خالد - Eagle، محترف في عالم التكنولوجيا والبرمجة. بدأت رحلتي منذ خمس سنوات في الحياة العملية، واكتسبت خبرة عميقة في إدارة السيرفرات والمشاريع التقنية الكبيرة."
-                       data-en="Hello, I'm Abu Khaled - Eagle, a professional in the world of technology and programming. I started my journey five years ago in professional life, gaining deep experience in server management and large technical projects.">
-                       مرحباً، أنا أبو خالد - Eagle، محترف في عالم التكنولوجيا والبرمجة. بدأت رحلتي منذ خمس سنوات في الحياة العملية، واكتسبت خبرة عميقة في إدارة السيرفرات والمشاريع التقنية الكبيرة.
-                    </p>
-                    <p data-ar="على مدار السنتين الماضيتين، ركزت على تطوير مهاراتي البرمجية، وأصبحت قائداً في هذا المجال، حيث أدير العديد من السيرفرات المشهورة وأقدم خدمات متنوعة تشمل البرمجة والتصميم الجرافيكي."
-                       data-en="Over the past two years, I focused on developing my programming skills, becoming a leader in this field, managing numerous famous servers and providing diverse services including programming and graphic design.">
-                       على مدار السنتين الماضيتين، ركزت على تطوير مهاراتي البرمجية، وأصبحت قائداً في هذا المجال، حيث أدير العديد من السيرفرات المشهورة وأقدم خدمات متنوعة تشمل البرمجة والتصميم الجرافيكي.
-                    </p>
+        <div class="info-box">
+            <h3>📌 تعليمات مهمة:</h3>
+            <p>• يجب الإجابة على جميع الأسئلة بدقة وصدق</p>
+            <p>• أدخل معرف الديسكورد الخاص بك بشكل صحيح</p>
+            <p>• ستتلقى النتيجة عبر رسالة خاصة من البوت</p>
+        </div>
+
+        <form id="examForm">
+            <div class="form-group">
+                <label for="userId">🆔 معرف الديسكورد الخاص بك (User ID)</label>
+                <input 
+                    type="text" 
+                    id="userId" 
+                    required 
+                    placeholder="مثال: 123456789012345678"
+                    pattern="[0-9]+"
+                    title="يجب إدخال أرقام فقط"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="username">👤 اسم المستخدم في الديسكورد</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    required 
+                    placeholder="أدخل اسمك في الديسكورد"
+                >
+            </div>
+
+            <div id="questions">
+                <div class="question">
+                    <span class="question-number">السؤال 1</span>
+                    <h3>ما المقصود بتقمّص الشخصية؟</h3>
+                    <textarea name="q1" required placeholder="اكتب إجابتك هنا..."></textarea>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label" data-ar="سنوات خبرة" data-en="Years Experience">سنوات خبرة</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label" data-ar="مشروع مكتمل" data-en="Projects Completed">مشروع مكتمل</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label" data-ar="سيرفرات مدارة" data-en="Servers Managed">سيرفرات مدارة</div>
-                    </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 2</span>
+                    <h3>ما هو كسر الرول بلاي؟</h3>
+                    <textarea name="q2" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 3</span>
+                    <h3>ما هو Meta Gaming؟</h3>
+                    <textarea name="q3" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 4</span>
+                    <h3>ما هو Power Gaming؟</h3>
+                    <textarea name="q4" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 5</span>
+                    <h3>ما معنى RDM؟</h3>
+                    <textarea name="q5" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 6</span>
+                    <h3>هل يُسمح بالانتقام بعد الموت؟</h3>
+                    <textarea name="q6" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 7</span>
+                    <h3>ما هو Fear RP؟</h3>
+                    <textarea name="q8" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 8</span>
+                    <h3>متى يُسمح باستخدام السلاح؟</h3>
+                    <textarea name="q8" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 9</span>
+                    <h3>هل يُسمح بالعودة لمكان الموت مباشرة؟</h3>
+                    <textarea name="q9" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 10</span>
+                    <h3>ما المقصود بالتصعيد في الرول بلاي؟</h3>
+                    <textarea name="q10" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 11</span>
+                    <h3>هل يُسمح بالإجرام في المناطق الآمنة؟</h3>
+                    <textarea name="q11" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 12</span>
+                    <h3>ما هو Fail RP؟</h3>
+                    <textarea name="q12" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 13</span>
+                    <h3>ما هو Combat Logging؟</h3>
+                    <textarea name="q13" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 14</span>
+                    <h3>ما الذي يُعتبر تصرف خارج نطاق الرول بلاي العام؟</h3>
+                    <textarea name="q14" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 15</span>
+                    <h3>ما واجب اللاعب تجاه الآخرين داخل الرول بلاي؟</h3>
+                    <textarea name="q15" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 16</span>
+                    <h3>هل يُسمح باستغلال ثغرات اللعبة؟</h3>
+                    <textarea name="q16" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 17</span>
+                    <h3>ماذا يجب فعله قبل إطلاق النار على شخصية أخرى؟</h3>
+                    <textarea name="q17" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 18</span>
+                    <h3>هل يمكن فرض الأفعال على اللاعبين الآخرين بدون سبب؟</h3>
+                    <textarea name="q18" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 19</span>
+                    <h3>هل لكل شخصية سجل تاريخي داخل اللعبة؟</h3>
+                    <textarea name="q19" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 20</span>
+                    <h3>ما معنى المنطقة الآمنة؟</h3>
+                    <textarea name="q20" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 21</span>
+                    <h3>هل يمكن بدء سيناريو دون تحضير أو سبب؟</h3>
+                    <textarea name="q21" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 22</span>
+                    <h3>ما واجب اللاعبين عند فشل السيناريو؟</h3>
+                    <textarea name="q22" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 23</span>
+                    <h3>ما هي مسؤولية الإدارة أثناء الرول؟</h3>
+                    <textarea name="q23" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 24</span>
+                    <h3>ماذا يعني اللعب الواقعي داخل الرول؟</h3>
+                    <textarea name="q24" required placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">السؤال 25</span>
+                    <h3>ما العقوبة عند مخالفة أي قانون أساسي؟</h3>
+                    <textarea name="q25" required placeholder="اكتب إجابتك هنا..."></textarea>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title" data-ar="المهارات" data-en="Skills">المهارات</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 data-ar="تصميم المواقع" data-en="Web Design">تصميم المواقع</h3>
-                    <p data-ar="إنشاء مواقع ويب احترافية وتفاعلية باستخدام أحدث التقنيات"
-                       data-en="Creating professional and interactive websites using the latest technologies">
-                       إنشاء مواقع ويب احترافية وتفاعلية باستخدام أحدث التقنيات
-                    </p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" style="--progress: 90%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3 data-ar="إدارة الأعمال" data-en="Business Management">إدارة الأعمال</h3>
-                    <p data-ar="خبرة واسعة في إدارة المشاريع الكبيرة والسيرفرات المعقدة"
-                       data-en="Extensive experience in managing large projects and complex servers">
-                       خبرة واسعة في إدارة المشاريع الكبيرة والسيرفرات المعقدة
-                    </p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" style="--progress: 95%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 data-ar="البرمجة" data-en="Programming">البرمجة</h3>
-                    <p data-ar="تطوير التطبيقات والأنظمة باستخدام لغات برمجة متعددة"
-                       data-en="Developing applications and systems using multiple programming languages">
-                       تطوير التطبيقات والأنظمة باستخدام لغات برمجة متعددة
-                    </p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" style="--progress: 85%"></div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 data-ar="التصميم الجرافيكي" data-en="Graphic Design">التصميم الجرافيكي</h3>
-                    <p data-ar="إبداع تصاميم بصرية مميزة للهوية التجارية والمحتوى الرقمي"
-                       data-en="Creating distinctive visual designs for branding and digital content">
-                       إبداع تصاميم بصرية مميزة للهوية التجارية والمحتوى الرقمي
-                    </p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" style="--progress: 80%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <button type="submit" class="submit-btn">
+                <span>إرسال الاختبار</span>
+            </button>
+        </form>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p data-ar="جميع الحقوق محفوظة © 2025 أبو خالد - Eagle"
-                       data-en="All rights reserved © 2025 Abu Khaled - Eagle">
-                       جميع الحقوق محفوظة © 2025 أبو خالد - Eagle
-                    </p>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>جاري إرسال الاختبار...</p>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="result" id="result">
+            <h2>✅ تم إرسال الاختبار بنجاح!</h2>
+            <p>ستتلقى النتيجة قريباً عبر رسالة خاصة من البوت</p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        document.getElementById('examForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const userId = document.getElementById('userId').value;
+            const username = document.getElementById('username').value;
+
+            // جمع الإجابات
+            const answers = [];
+            for (let i = 1; i <= 25; i++) {
+                const textarea = document.querySelector(`textarea[name="q${i}"]`);
+                answers.push(textarea ? textarea.value : '');
+            }
+
+            // إظهار التحميل
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('examForm').style.display = 'none';
+
+            try {
+                const response = await fetch(`${API_URL}/submit-exam`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        userId,
+                        username,
+                        answers
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('loading').classList.remove('show');
+                    document.getElementById('result').classList.add('show');
+                } else {
+                    alert('حدث خطأ: ' + data.error);
+                    document.getElementById('loading').classList.remove('show');
+                    document.getElementById('examForm').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error submitting exam:', error);
+                alert('فشل إرسال الاختبار. تأكد من تشغيل السيرفر.');
+                document.getElementById('loading').classList.remove('show');
+                document.getElementById('examForm').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
